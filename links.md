@@ -7,15 +7,33 @@ group: meta
 
 ##Bookmarks
 
-[饭否](http://fanfou.com) | [V2EX](http://v2ex.com) | [果壳](http://guokr.com) | [豆瓣](http://douban.com)
+<ul class="tag_box inline">
+    	<li><a href="http://fanfou.com">饭否</a></li>
+    	<li><a href="http://guokr.com">果壳</a></li>
+    	<li><a href="http://douban.com">豆瓣</a></li>
+    	<li><a href="http://v2ex.com">V2EX</a></li>
+</ul>
 
 ##Xidian
 
-[西电开源社区](http://xdlinux.info) | [K.I.S.S](http://bigeagle.me) | [龍虾的书房](http://asxzy.net) | [逆跑](http://xwz.me/blog) | [ggarlic的blog](http://ggarlic.org) | [It is not a piece of cake](http://icaker.info) | [我猜的](http://wocai.de) 
-
-[Not Important](http://notimportant.org)
+<ul class="tag_box inline">
+    	<li><a href="http://xdlinux.info">西电开源社区</a></li>
+    	<li><a href="http://bigeagle.me">K.I.S.S</a></li>
+    	<li><a href="http://asxzy.net">龍虾的书房</a></li>
+    	<li><a href="http://xwz.me/blog">逆跑</a></li>
+		<li><a href="http://ggarlic.org">ggarlic的blog</a></li>
+		<li><a href="http://icaker.info">It is not a piece of cake</a></li>
+		<li><a href="http://wocai.de">我猜的</a></li>
+		<li><a href="http://notimportant.org">Not Important</a></li>
+</ul>
 
 ##饭否er
 
-[南锅爷爷](http://whongn.com) | [@.rex](http://zhasm.com) | [@令狐虫](http://ch_linghu.me/blog) | [@令糊葱](http://www.summeronion.com) | [@惡人寰](http://echodye928.lofter.com/) | [@Afterx](http://www.afterx.cn) 
-
+<ul class="tag_box inline">
+    	<li><a href="http://whongn.com">南锅爷爷</a></li>
+    	<li><a href="http://zhasm.com">@.rex</a></li>
+    	<li><a href="http://ch_linghu.me/blog">@令狐虫</a></li>
+    	<li><a href="http://www.summeronion.com">@令糊葱</a></li>
+		<li><a href="http://echodye928.lofter.com">@惡人寰</a></li>
+		<li><a href="http://www.afterx.cn">@Afterx</a></li>
+</ul>

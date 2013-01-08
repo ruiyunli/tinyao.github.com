@@ -523,7 +523,7 @@ border-right: 1px solid gray;
 .wrapper {
   background: white url(../img/post_top.png) repeat-x left top;
 	margin-top:20px;
-	padding: 20px 15px;
+	padding: 20px 20px;
 	moz-border-radius: 5px;
 	webkit-moz-border-radius: 5px;
 	border-radius: 5px;

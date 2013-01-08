@@ -19,7 +19,7 @@ group: meta
 
 Gmail: yao2app#gmail.com   
 
-<script type="text/javascript" src="http://www.douban.com/service/badge/yaoapp/?show=collection&amp;n=10&amp;columns=10&amp;hidelogo=yes&amp;cat=movie|book" ></script>
+<br/>
 
 
  [1]: https://github.com/tinyao
