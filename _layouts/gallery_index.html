@@ -1,0 +1,78 @@
+---
+layout: default
+title: 我的相册
+---
+
+<style TYPE="text/css">
+#wrapper gallery a img {
+    border-style: ;
+}
+#wrapper gallery img {
+    border-style: solid;
+    border-color: #b39898;
+    border-width: 3px;
+    padding-bottom: 37px;
+	background-color: #EDF;
+	max-width:350px;
+}
+
+.gallery-image-wrapper {
+	width: 345px;
+  display: inline-block;
+  margin: 1em;
+  position: relative;
+  text-align: center;
+}
+.gallery-image {
+  	border: 6px #111 solid;
+	background-color: #EDF;
+	max-width:350px;
+	border-radius: 5px;
+}
+
+#gallery div {
+    padding-top: -20px;
+}
+
+#gallery h5 {
+    text-decoration: none;
+    font-family: "Lucida Grande", Verdana, sans-serif;
+    font-variant: small-caps;
+	margin-top: -37px;
+	margin-bottom: 30px;
+	margin-left: 10px;
+}
+
+#gallery ul {
+  width:100%;
+  overflow:hidden;
+}
+#gallery ul li {
+  list-style-type:none;
+  float:left;
+  width:50%;
+}
+#gallery ul li h5 {
+  text-decoration: none;
+    font-family: "Lucida Grande", Verdana, sans-serif;
+    font-variant: small-caps;
+  font-size:17px;
+}
+}
+</style>
+
+<div class="wrapper">
+
+<h2 style="text-align:center;border-right: 5px solid #DDE;">My Gallery</h2>
+
+{% for gallery in page.galleries %}
+<div class="gallery-image-wrapper">
+    <a href="{{ gallery['gallery'] }}">
+        <img class="gallery-image" src="{{ gallery['gallery'] }}/thumbs/{{ gallery['best_image'] }}">
+    </a>
+    <h4><a href="{{ gallery['gallery'] }}">{{ gallery["name"] }}</a></h4>
+    {{ gallery["images"] | size }} images
+</div>
+{% endfor %}
+
+</div>

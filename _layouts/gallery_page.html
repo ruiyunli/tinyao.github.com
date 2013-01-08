@@ -1,0 +1,80 @@
+---
+layout: default
+---
+<style TYPE="text/css">
+#gallery a img {
+    border-style: ;
+}
+#gallery img {
+    border-style: solid;
+    border-color: #b39898;
+    border-width: 3px;
+    padding-bottom: 37px;
+	background-color: #EDF;
+  max-width:345px;
+  border-radius: 5px;
+}
+
+.gallery-image-wrapper {
+	width:345px;
+  display: inline-block;
+  margin: 1em;
+  position: relative;
+  text-align: center;
+}
+.gallery-image {
+  margin: auto;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+#gallery div {
+    padding-top: -20px;
+}
+
+#gallery h5 {
+    text-decoration: none;
+    font-family: "Lucida Grande", Verdana, sans-serif;
+    font-variant: small-caps;
+	margin-top: -37px;
+	margin-bottom: 30px;
+	margin-left: 10px;
+}
+
+#gallery ul {
+  width:100%;
+  overflow:hidden;
+}
+#gallery ul li {
+  list-style-type:none;
+  float:left;
+  width:50%;
+}
+#gallery ul li h5 {
+  text-decoration: none;
+    font-family: "Lucida Grande", Verdana, sans-serif;
+    font-variant: small-caps;
+  font-size:17px;
+}
+}
+</style>
+
+<div class="wrapper">
+
+  <h2 style="text-align:center;border-right: 5px solid #DDE;">{{ page.title }}</h2>
+
+{% for i in (0..page.amount) %}
+     <div class="gallery-image-wrapper" id="gallery">
+       <a href="{{ page.images[i] }}"><img src="thumbs/{{ page.images[i] }}" /></a>
+		 <h5>{{ page.image_info[i] }}</h5>
+       </div>
+  {% endfor %}
+
+<h3><a href="/{{ site.gallery_dir }}">Back To Gallery</a></h3>
+<strong>注：</strong><small>图片请莫随意使用，如需使用请联系:<a href=mailto:yao2app@gmail.com>yao2app@gmail.com</a>
+</small>
+
+</div>
