@@ -1,0 +1,95 @@
+<p>sniffer</p>
+<div>
+  <pre><code class='c'>/**************************************************************
+ * Author:  姚成灶@tinyao 01099033
+ * Date:    2012/11/20
+ * Desc:    sniffer抓包实现：打印出MAC、IP、PORT以及协议类型
+ * File:    simple_sinffer.c
+ * Compile: gcc simple_sniffer.c -o sniffer
+ * Run:     sudo ./sniffer [注: 必须在root下执行，才能抓包]
+ *
+ **************************************************************/
+
+#include &lt;stdio.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;netinet/in.h&gt;
+#include &lt;arpa/inet.h&gt;
+#include &lt;linux/if_ether.h&gt;
+#define BUFFER_MAX 2048
+
+int main(int argc, char *argv[])
+{	
+    int sock, n_read, proto;	
+    char buffer[BUFFER_MAX];
+    char *ethhead, *iphead, *tcphead, *udphead, *icmphead, *p;
+    
+    if((sock = socket(PF_PACKET, SOCK_RAW, htons(ETH_P_IP))) &lt; 0)
+    {
+	    fprintf(stdout, &quot;create socket error\n&quot;);
+	    exit(0);
+	}
+
+	while(1) {
+        printf(&quot;\n===========================================================\n&quot;);
+        n_read = recvfrom(sock, buffer, 2048, 0, NULL, NULL);
+		
+        /*******************************************
+		* 14   6(dest)+6(source)+2(type or length)
+		* +
+		* 20   ip header 
+		* +
+		* 8    icmp,tcp or udp header
+		* = 42
+		********************************************/
+		
+        if(n_read &lt; 42) 
+		{
+			fprintf(stdout, &quot;Incomplete header, packet corrupt\n&quot;);
+			continue;
+		}
+		
+		ethhead = buffer;
+		p = ethhead;
+		int n = 0XFF;
+		printf(&quot;MAC:\t%.2X:%02X:%02X:%02X:%02X:%02X  ==&gt;  &quot;
+			&quot;%.2X:%.2X:%.2X:%.2X:%.2X:%.2X\n&quot;,
+			p[6]&amp;n, p[7]&amp;n, p[8]&amp;n, p[9]&amp;n, p[10]&amp;n, p[11]&amp;n,
+			p[0]&amp;n, p[1]&amp;n, p[2]&amp;n, p[3]&amp;n, p[4]&amp;n, p[5]&amp;n);
+
+        iphead = ethhead + 14;  
+        p = iphead + 12;
+        
+        printf(&quot;IP:\t%d.%d.%d.%d\t   ==&gt;  %d.%d.%d.%d\n&quot;,
+			p[0]&amp;0XFF, p[1]&amp;0XFF, p[2]&amp;0XFF, p[3]&amp;0XFF,
+			p[4]&amp;0XFF, p[5]&amp;0XFF, p[6]&amp;0XFF, p[7]&amp;0XFF);
+		
+		proto = (iphead + 9)[0];
+		p = iphead + 20;
+		printf(&quot;协议:\t&quot;);
+
+		switch(proto) {
+        case IPPROTO_ICMP: 
+            printf(&quot;ICMP\n&quot;);
+            break;
+        case IPPROTO_IGMP: 
+            printf(&quot;IGMP\n&quot;);
+            break;
+        case IPPROTO_IPIP:
+            printf(&quot;IPIP\n&quot;);
+            break;
+        case IPPROTO_TCP :
+        case IPPROTO_UDP : 
+            printf(&quot;%s\n&quot;, proto == IPPROTO_TCP ? &quot;TCP&quot;: &quot;UDP&quot;); 
+			printf(&quot;Port:\tsource: %u\t   ==&gt;&quot;,(p[0]&lt;&lt;8)&amp;0XFF00 |  p[1]&amp;0XFF);
+			printf(&quot;\tdest: %u&quot;, (p[2]&lt;&lt;8)&amp;0XFF00 | p[3]&amp;0XFF);
+			break;
+        case IPPROTO_RAW : 
+            printf(&quot;RAW\n&quot;);
+            break;
+        default:
+            printf(&quot;Unkown, please query in include/linux/in.h\n&quot;);
+		}
+	}
+}</code></pre>
+</div>

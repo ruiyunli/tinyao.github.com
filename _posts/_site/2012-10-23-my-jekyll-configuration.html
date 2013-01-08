@@ -1,0 +1,73 @@
+<p>上一篇将到Jekyll的简单搭建，这一节总结了自己的自定义配置过程</p>
+
+<h2 id='rdiscount'>RDiscount</h2>
+
+<p>自带的markdown解析器有问题，对中文支持不好，下载RDiscount解析器：</p>
+<pre><code> $ sudo gem install rdiscount</code></pre>
+<p>修改 <code>_config.yml</code>文件，修改或添加以下属性：</p>
+
+<pre><code>markdown: rdiscount</code></pre>
+
+<h2 id='id2'>实现代码高亮</h2>
+
+<p>1. <strong>小片段</strong></p>
+
+<p>比如某个参数设置等，可以直接用markdown自己的格式，即在需要标记为<code>code</code>的地方缩进一个tab，那么在生成html时便会自动加上<code>&lt;pre&gt;&lt;code&gt;</code>标记。如果是在一句话中标记Code，像上句这样，则只需要用反引号包含相关文字就可以了</p>
+
+<p>2. <strong>语言相关</strong></p>
+
+<p>Jekyll通过<a href='http://pygments.org/'>Pygments</a>支持超过百种语言的代码高亮，标记非常简单，基本就是highlight+语言名称<a href='https://github.com/mojombo/jekyll/wiki/Liquid-Extensions/'>这种格式</a>，至于CSS的写法可以<a href='https://github.com/mojombo/tpw/blob/master/css/syntax.css'>参考这里</a>，也可以通过上面的Pygments程序生成<a href='http://tinyao.github.com/assets/css/syntax.css'>css文件</a>。</p>
+
+<p>效果显示</p>
+<div>
+  <pre><code class='java'>package org.czzz.view.tablelist.model;
+
+import android.view.View;
+
+public class ViewItem implements IListItem {
+
+	private boolean mClickable = true;
+	private View mView;
+
+	public ViewItem(View view) {
+		this.mView = view;
+	}
+
+	public View getView() {
+		return this.mView;
+	}
+
+	@Override
+	public boolean isClickable() {
+		return mClickable;
+	}
+
+}</code></pre>
+</div>
+<p>3. <strong>gist嵌入</strong></p>
+
+<p>不用插件的话可以直接用官方gist嵌入方法，如果用这个<a href='https://gist.github.com/1027674'>插件</a>的话则仅需要写上gist+gist id即可，更加方便。</p>
+
+<p>4. <strong>Prettyprint CSS</strong></p>
+
+<p>另外推荐twitter的开源项目Bootstrap，利用它外加<a href='http://code.google.com/p/google-code-prettify/'>Prettyprint</a>可以方便快速的显示高亮代码。</p>
+<pre class='prettyprint linenums'>
+int x = foo();  /* This is a comment  <span class='nocode'>This is not code</span>
+  Continuation of comment */
+int y = bar();
+</pre><pre class='prettyprint linenums'>
+ialert("test");
+</pre>
+<p>效果很不错，不过我不知道怎么回事，在我这很多语言都支持不了，同样是java代码段小时，能够解析。但复杂点的代码段就fail了。所以最后还是选择Pygments作为代码高亮方案。</p>
+
+<h2 id='wordpress'>导入wordpress等其他博客数据</h2>
+
+<p>参考官方说明 <a href='https://github.com/mojombo/jekyll/wiki/blog-migrations'>https://github.com/mojombo/jekyll/wiki/blog-migrations</a></p>
+
+<p>我使用的是Wordpress to Jekyll Exporter插件，在wp后台安装插件，然后导出数据，根据需要选择post，page等信息添加到<code>Jekyll</code>中。</p>
+
+<p>未完待记 &#8230;</p>
+
+<p>我的jekyll-bootstrap: <a href='https://github.com/tinyao/tinyao.github.com'>https://github.com/tinyao/tinyao.github.com</a>， 有些冗余文件～</p>
+
+<p>Liquid error: No such file or directory - /home/tinyao/Coding/Web/Jekyll/tinyao.github.com/_posts/_includes</p>

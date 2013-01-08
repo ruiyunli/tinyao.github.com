@@ -1,0 +1,30 @@
+<p>这里针对ZXing 1.6版本，直接上方法</p>
+
+<p>1、修改manifest文件，将CaptureActivity设为<code>portrait</code></p>
+<div>
+  <pre><code class='xml'>android:screenOrientation=&quot;portrait&quot;</code></pre>
+</div>
+<p>2、在DecodeHandler.java文件中，找到decode(byte<span />,int,int)方法，在buildLuminanceSource调用前，加上如下：</p>
+<div>
+  <pre><code class='java'>byte[] rotatedData = new byte[data.length];
+for (int y = 0; y &lt; height; y++) {
+    for (int x = 0; x &lt; width; x++)
+    rotatedData[x * height + height - y - 1] = data[x + y * width];
+}
+int tmp = width; // Here we are swapping, that's the difference to #11
+width = height;
+height = tmp;
+
+data = rotatedData;</code></pre>
+</div>
+<p>3、在CameraManager.java中找到getFramingRectInPreview()方法， 替换相应代码：</p>
+<pre class='prettyprint linenums lang-java'>
+rect.left = rect.left * cameraResolution.y / screenResolution.x;
+rect.right = rect.right * cameraResolution.y / screenResolution.x;
+rect.top = rect.top * cameraResolution.x / screenResolution.y;
+rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y;
+</pre>
+<p>4、在CameraConfigurationManager.java里找到setDesiredCameraParameters()方法，加入代码</p>
+<div>
+  <pre><code class='java'>camera.setDisplayOrientation(90);</code></pre>
+</div>

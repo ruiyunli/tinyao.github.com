@@ -1,0 +1,153 @@
+---
+author: tinyao
+title: 【翻译】Android 4.0+ 设计原则
+excerpt:
+layout: post
+category:
+  - Android
+tags: [ ]
+post_format: [ ]
+---
+> 去年下半年，Google发布了Android 4.0系统Ice Creame Sandwich，这是一次里程碑式的改变。Android改变了此前设计的短板，开始向设计精良，风格统一的方向迈进。
+
+这篇文章翻译自 Android Developer官网，简述Ice Creame Sandwich 4.0之后的Android应用中应该考虑的设计原则。
+
+[![vision][2]][2]
+ 
+
+Ice Cream Sandwich (Android 4.0)是Android设计的一次关键的里程碑。我们从Honeycomb平板吸取经验，拓展了新的设计方法，使得其可以应用到所有的移动设备上，我们几乎可以触及到系统的每一个像素。从最基本的元素开始，我们引入了一种新的字体，Roboto（专为高质量显示设计）。其他大的变化包括系统层次的Action Bar，这使得新设计的手机可以不需要物理按键。
+
+我们针对核心应用以及系统全局的设计工作围绕三个目标，当你在设计开发Android应用时，不妨考虑下面几个目标：
+
+##Enhant me
+
+美观远不止外表所见。Android应用是流畅在多方面令人愉悦的。过渡切换是快速清晰的，布局与排版是干脆与有意义的。应用的图标是反映作品的艺术品。就像一个制作精良的工具，你的应用应该要结合美观，简洁同时力求创造出一种轻松而强大的神奇体验。
+
+*   **Delight me in surprising ways**
+
+一个美观的界面，一个设计合适的动画，异或是时间得当的音效都会是一份愉悦的体验。微妙的效果也会带来毫不费力的自然和一种尽在掌控的感觉.
+ 
+![][3]
+
+*   **Real objects are more fun than**
+    **buttons and menus**
+
+允许人们直接触碰和操控应用里的元素。当你将应用设计地自然满意时，这将减少完成一个任务时的认知力气。
+
+![][4] 
+
+*   **Let me make it mine**
+
+用户热爱添加个性化的东西，因为这让他感觉ease和in contol。除了感性漂亮的默认值以外，在不妨碍主要功能的情况下，再考虑下那些有趣的，可定制的东西吧。
+
+![][6] 
+
+*   **Get to know me**
+
+不断了解用户的偏好。相比于一次次抛出一个带着很多相同选项的问题，尽量为用户排除干扰，将更可能的选择放在易于触及的地方。
+
+![][8]
+
+## Simplify my life
+
+Android应用是生活变得简单，变得易于理解。当用户第一次使用你的应用时，他应该可以通过直觉掌握绝大多数features。但是，真正的设计工作不止于首次使用。Android应用应该要去除像文件管理与同步时的那些琐碎。简单的操作体验从来都不会与复杂的步骤相交，复杂的步骤应该要为用户的操作量身定制。各个年龄层次与文化背景都要考虑在内并且掌控好关系，同时过多的选项与不相关的动画会让人不堪重负。
+
+*   **Keep it brief**
+
+使用简短的短语。用户习惯性地会跳过那些长句子。
+
+![][10]
+
+*   **Pictures are faster than words**
+
+考虑使用图片来阐述想法。图片更能吸引用户的注意力并且会更加高效。
+
+![][12] 
+
+*   **Decide for me but let me have the final say**
+
+首先，做出最佳的猜想而不是提问。太多的选项和决定使用户不愉快。但是如果你的猜想不合用户意，允许‘撤销’。
+
+![][13] 
+
+*   **Only show what i need when i need it**
+
+当用户一下子看到太多元素（密集恐惧症），会觉得不堪重负。将任务与信息切分成易于消化的小块。隐藏那些在某一时刻不必要的选项，顺着用户的意图去引导他们。
+
+![][14]
+
+*   **I should always know where I am**
+
+给用户信心使其能够感知他们所在。在你的应用里，让不同的地方看起来有区别，使用切换过渡来表现屏幕层级关系。对于正在进行的任务提供良好的反馈。
+
+![][16] 
+
+*   **Never lose my stuff**
+保存好那些用户花时间创造的东西，让他们可以在任何地方获取它。记住设置，个性配置和新增内容在手机，平板和电脑上。这使得升级成了世界上最简单的事情。永远丢不掉的数据，随时可得。
+
+![][18]
+
+*   **If it looks the same, it shoud act the same**
+
+使用明显的视觉不同帮助用户辨别不同的功能。避免那些看戏来相似却在相同操作下表现不同的设计模式。
+
+![][19]
+
+*   **Only interrupt me if it’s important*
+
+就像是一位个人助理，将用户保护远离那些不用要的细节。用户想要保持集中的注意力，除非遇到关键和紧急的事情，打断用户当前的工作会让人沮丧的。
+
+![][21] 
+
+## Make me amazing
+
+一个应用只要易于使用就足够了。Android应用授权人们去尝试新的东西，去以创新的方式使用应用。Android使人将应用结合到工作流程中（通过多任务，通知与分享）。与此同时你的应用应该要感觉是属于个人的，给用户触及那些明晰且优雅科技的机会。
+
+*   **Give me tricks that work everywhere**
+
+当用户自己理清事情的时候，他会感觉很棒。使用可视化的模式与方便识记的方式，让你的应用更易上手。例如一个滑动手势是一种不错的快捷导航的方式。
+
+![][22]
+
+*   **It’s not my fault
+
+在你提示用户正确操作时，要友善慷慨。用户在使用你的应用时，想要感觉到的是智能。如果什么东西崩溃或错误了，请给出明确的恢复指导，但要与那些纯粹的技术细节隔开。如果你能够在可视界面背后修复问题，那样会更好。
+
+![][24] 
+
+*   **Sprinkle encouragement**
+
+将复杂的任务切分成易于完成的小步骤。给出操作的响应反馈，即便只是一个细微的光晕也好。
+
+![][26]
+
+*   **Do the heavy lifting for me**
+
+通过使新手能够做那些未曾想过的事情，让新手感觉像专家一样。例如，结合多照相效果的快捷方式能够使业余的照片在几步之内看起来惊艳。
+
+![][28]
+
+*   **Make important things fast**
+
+不是所有的操作反馈都是平等的。判断那些在你的应用里是最重要的，然后让它变得易于找到和使用，就像是照相机里的快门，或者是音乐播放器里的暂停按钮。
+
+![][30]
+
+ [2]: http://i.imgur.com/a7v31.png
+ [3]: http://i.imgur.com/dxsek.png
+ [4]: http://i.imgur.com/CdN8n.png
+ [6]: http://i.imgur.com/hvBxt.png
+ [8]: http://i.imgur.com/Nhp4D.png
+ [10]: http://i.imgur.com/CdQu2.png
+ [12]: http://i.imgur.com/0xCxG.png
+ [13]: http://i.imgur.com/EEZPl.png
+ [14]: http://i.imgur.com/ii6ae.png
+ [16]: http://i.imgur.com/OKYwk.png
+ [18]: http://i.imgur.com/Zv52d.png
+ [19]: http://i.imgur.com/ErEKl.png
+ [21]: http://i.imgur.com/MaQPL.png
+ [22]: http://i.imgur.com/Vyxkh.png
+ [24]: http://i.imgur.com/NNXsS.png
+ [26]: http://i.imgur.com/BUQAT.png
+ [28]: http://i.imgur.com/dZhGa.png
+ [30]: http://i.imgur.com/7zyrb.png

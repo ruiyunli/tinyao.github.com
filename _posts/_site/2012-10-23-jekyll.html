@@ -1,0 +1,141 @@
+<p>几个月前，就看到<a href='http://v2ex.com'>V2EX</a>上讨论Jekyll了。</p>
+
+<p>搭建时间花的并不长，比较多的时间在了解jekyll的结构上了，然后就是折腾主题。结合了<a href='http://ztpala.com'>@ztpala</a>的effector-wide主题和默认twitter主题的特点。最后就是这么一个综合体了。也有看到其他一些更好的theme但没测试成功，所以就规避了。</p>
+
+<p>Jekyll-Bootstrap是一个轻量级的Ruby博客框架，使用<code>Liquid</code>模板渲染引擎，支持<code>Markdown</code>和<code>Textile</code>标记语言，并且可以为所有.html .markdown .textile文件使用<code>YAML</code>配置，内置语法高亮功能。而Github pages支持<code>Jekyll</code>。Github Pages有两种，分别是用户页面和项目页面，所以我们可以使用用户也卖弄来创建自己的Blog。</p>
+
+<p>在markdown或textile里编辑内容； 通过git管理所有内容； 通过terminal发布； 没有数据库； 没有主机困扰。</p>
+
+<p>更重要的，静态页面访问飞快。</p>
+
+<h2 id='zero_to_hosted_jekyll_blog_in_3_minutes'>Zero to Hosted Jekyll Blog in 3 Minutes</h2>
+
+<p>1. 在Github创建一个新的repository，命名为USERNAME.github.com</p>
+
+<p>2. 安装Jekyll-Bootstrap</p>
+<pre><code>$ cd USERNAME.github.com
+$ git remote set-url origin git@github.com:USERNAME/USERNAME.github.com.git
+$ git push origin master
+</code></pre>
+<p>3. 结果</p>
+
+<p>提交后等几分钟，打开<a href='http://USERNAME.github.com'>http://USERNAME.github.com</a></p>
+
+<h2 id='jekyll_quick_start'>Jekyll Quick Start</h2>
+
+<ol>
+<li>
+<p>安装Jekyll-Bootstrap</p>
+
+<p>Jekyll-bootstrap是一个轻量级的博客框架，支持主题，统计，评论和日志/页面创建。</p>
+</li>
+
+<li>
+<p>在本地运行Jekyll</p>
+
+<p>为了能够在本地预览博客，你还需要安装Jekyll ruby gem. 注意gem的依赖包也需要被安装。</p>
+
+<pre><code>$ gem install jekyll</code></pre>
+
+<p>jekyll依赖于gems directory_watcher, liquid, open4, maruku and classifier. 这些会在安装gem时自动安装。</p>
+
+<p>如果你在安装gem时遇到问题，你可能需要安装用于编译ruby1.9.1扩展模块的头文件。在Debian系统：</p>
+
+<pre><code>$ sudo apt-get install ruby1.9.1-dev&lt;</code></pre>
+
+<p>在Red Hat/CentOS/Fedora系统：</p>
+
+<pre><code>$ sudo yum install ruby-devel</code></pre>
+
+<p>gem安装之后，进入jekyll-bootstrap目录USERNAME.github.com。然后运行jekyll打开server支持</p>
+
+<pre><code>cd USERNAME.github.com
+$ jekyll --server</code></pre>
+
+<p>打开<a href='http://localhost:4000'>http://localhost:4000</a> 或者 <a href='http://0.0.0.0:4000'>http://0.0.0.0:4000</a>可以预览博客。</p>
+</li>
+</ol>
+
+<p>3. 新建日志</p>
+
+<p>可以在新建的文件头部修改显示信息</p>
+<pre><code>$ rake post title="Hello World"</code></pre><pre><code>---
+layout: post
+title: "Hello World"
+description: ""
+category: category1
+tags: [tag1,tag2]
+---</code></pre>
+<p>4. 新建页面</p>
+<pre><code>$ rake page name="about.md"
+$ rake page name="pages/about.md"
+$ rake page name="pages/about"</code></pre>
+<p>可以在新建的文件头部修改显示信息</p>
+<pre><code>---
+layout: page
+title: "about"
+description: ""
+group: navigation
+---</code></pre>
+<p>5. 发布提交</p>
+<pre><code>$ git add .
+$ git commit -m "add new content"
+$ git push origin master</code></pre>
+<p>6. 绑定自有域名</p>
+
+<pre><code>在你的repo新建内容为 www.domain.com的CNAME文件</code></pre>
+
+<p>在你的域名管理页面或DNS解析地，增加一个记录，记录类型为CNAME（Alias）类型。如果你在CNAME中填写的是顶级域名，就得设置DNS的记录类型为A（Host）型，并设置主机为207.97.227.245。详细移步Github的Pages说明。</p>
+
+<h2 id='jekyll'>简单认识Jekyll文件框架</h2>
+
+<pre><code>.
+  |-- _includes
+  |-- _plugins
+  |-- _layout
+  |   |-- default.html
+  |   `-- post.html
+  |-- _post
+  |   |-- yyyy-mm-dd-title.markdown
+  |   `-- yyyy-mm-dd-title.markdown
+  |-- _site
+  |-- _config.yml
+  `-- index.html</code></pre>
+
+<p>_includes：存放你需要的模板文件，你可以使用Liquid标签<code>{‰ include file.ext ‰}</code>来引用相应的文件。</p>
+
+<p>_plugins：放置扩展插件</p>
+
+<p>_layout：存放布局模板，<a href='https://github.com/tinyao/tinyao.github.com/tree/master/_layouts'>参考</a></p>
+
+<p>_post：存放文章列表，文件名遵循yyyy-mm-dd-title.html|markdown|textile规则，<a href='https://github.com/tinyao/tinayo.github.com/tree/master/_posts'>参考</a>。注意用中文命名时会出现一些情况。</p>
+
+<p>_site：Jekyll自动生成的，可以忽略，所以可以使用<code>.gitignore</code>设置Git停止对本目录的跟踪。</p>
+
+<p>_config.yml：设置经常使用的配置选项。</p>
+
+<h2 id='id1'>理想的写作环境</h2>
+
+<p>如<a href='http://www.yangzhiping.com/'>阳志平</a>日志中提到的，理想的写作环境，受各类干扰小，清理废话及版本管理容易。</p>
+
+<p>github让人不再担心备份与写作，随时提交的版本管理。零散的思考可以随时记录在jekyll的_drafts目录下。当思考成熟，予以发布。</p>
+
+<p>markdown让人不再忧虑排版，专注文字。</p>
+
+<p>所以呢，我的wordpress折腾史将结束了，移步Jekyll，简洁，干净，纯粹，稳定。</p>
+
+<p>//</p>
+
+<p>更多详解 <a href='http://jekyllbootstrap.com/usage/jekyll-quick-start.html'>Jekyll Quick Start</a></p>
+
+<ul>
+<li>Markdown语法中文版 <a href='http://wowubuntu.com/markdown/'>http://wowubuntu.com/markdown/</a></li>
+
+<li>markdown <a href='http://markdown.tw/'>http://markdown.tw/</a></li>
+
+<li>Jekyll官网 <a href='https://github.com/mojombo/jekyll'>https://github.com/mojombo/jekyll</a></li>
+
+<li>Jekyll-Bootstrap官网 <a href='http://jekyllbootstrap.com/'>http://jekyllbootstrap.com/</a></li>
+</ul>
+
+<p>Liquid error: No such file or directory - /home/tinyao/Coding/Web/Jekyll/tinyao.github.com/_posts/_includes</p>
