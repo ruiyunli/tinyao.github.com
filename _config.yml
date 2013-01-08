@@ -117,3 +117,9 @@ JB :
   #   ./_includes/custom/[HELPER]
   # where [HELPER] is the name of the helper you are overriding.
   
+gallery_dir: photos
+galleries:
+  galaxy nexus:
+    best_image: 1347756962255.jpg
+  new:
+    best_image: IMG_20121120_184515.jpg
