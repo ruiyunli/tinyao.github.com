@@ -15,6 +15,15 @@
 </head>
 <body onload="prettyPrint()">
 
+<div class="inner">
+<header id="header"><div class="hgroup">
+  <h1><a href="/">Lucifr</a></h1>
+  <h2><a href="/">分享网络、博客、软件及其它趣事</a></h2>
+</div>
+<div class="clearfix"></div></header>
+
+</div>
+
 <div class="nav">
 	<div class="container" style="padding-left:35px">
 
@@ -32,6 +41,28 @@
 
 
 <div class="container">
+
+
+<nav id="main-nav" role="navigation"><form action="http://google.com/search" method="get" accept-charset="utf-8">
+  <fieldset class="mobile-nav"><select><option value="">Navigate…</option><option value="http://0.0.0.0:4000/">» Home</option><option value="http://0.0.0.0:4000/archive">» Archives</option><option value="http://0.0.0.0:4000/links">» Projects</option><option value="http://0.0.0.0:4000/about">» About</option></select></fieldset><fieldset role="search">
+    <input class="search" type="text" name="q" results="0" placeholder="Search">
+    <input type="hidden" name="q" value="site:lucifr.com">
+  </fieldset>
+</form>
+<ul role="main-navigation">
+  
+    <li><a href="/">Home</a></li>
+  
+    <li><a href="/archives">Archives</a></li>
+  
+    <li><a href="/project">Projects</a></li>
+  
+    <li><a href="/about">About</a></li>
+  
+</ul>
+<div class="clearfix"></div></nav>
+
+
 
 {{ content }}
 

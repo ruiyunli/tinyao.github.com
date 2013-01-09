@@ -66,7 +66,7 @@ a:hover, a:active {
     outline: 0;
 }
 img {
-    max-width: 760px;
+    max-width: 100%;
     height: auto;
     border: 0;
 	_width: 760px;
@@ -514,6 +514,142 @@ border-right: 1px solid gray;
 	-webkit-box-shadow: 0 1px 3px #A8ABAB;
 	-moz-box-shadow: 0 1px 3px #A8ABAB;
 	box-shadow: 0 1px 3px #A8ABAB;
+}
+
+
+/* test */
+
+.inner {
+  width: 680px;
+  margin: 0 auto;
+}
+
+#main-nav {
+  background: url("http://lucifr.com/images/nav.jpg");
+  height: 40px;
+  font-family: "PT Serif", Helvetica Neue, Helvetica, Arial, sans-serif;
+  color: #d9d9d9;
+  line-height: 22px;
+  -webkit-border-radius: 0.4em 0.4em 0 0;
+  border-radius: 0.4em 0.4em 0 0;
+  -webkit-box-shadow: rgba(0,0,0,0.6) 0 1px 5px;
+  box-shadow: rgba(0,0,0,0.6) 0 1px 5px;
+  padding: 10px 35px 0px 35px;
+  position: relative;
+  z-index: 2;
+}
+@media screen and (max-width: 550px) {
+  #main-nav {
+    font-size: 16px;
+    padding: 10px 16px 0px 16px;
+  }
+}
+#main-nav ul {
+  list-style: none;
+}
+@media screen and (max-width: 550px) {
+  #main-nav ul {
+    display: none;
+  }
+}
+#main-nav ul li {
+  float: left;
+}
+#main-nav ul li a {
+  color: #d9d9d9;
+  font-size: 12px;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+}
+#main-nav ul li a:hover {
+  color: #fff;
+}
+#main-nav ul li + li {
+  margin-left: 0.8em;
+}
+#main-nav form {
+  width: 200px;
+  float: right;
+}
+@media screen and (max-width: 550px) {
+  #main-nav form {
+    float: left;
+    width: 100%;
+  }
+}
+#main-nav form fieldset {
+  border: none;
+}
+#main-nav form fieldset input {
+  width: 98%;
+  background-color: rgba(0,0,0,0.42);
+  -webkit-box-shadow: 0 1px 0 rgba(255,255,255,0.24), 0 1px 6px rgba(0,0,0,0.45) inset;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.24), 0 1px 6px rgba(0,0,0,0.45) inset;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+  border: none;
+  padding: 0.3em 0.5em;
+  color: #c4c4c4;
+  font-size: 0.95em;
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  margin-top: 0.2em;
+}
+#main-nav form fieldset[role="search"] {
+  width: 99%;
+}
+@media screen and (max-width: 550px) {
+  #main-nav form fieldset[role="search"] {
+    width: 48%;
+    float: right;
+  }
+}
+#main-nav form fieldset.mobile-nav {
+  float: left;
+  width: 48%;
+  display: none;
+}
+@media screen and (max-width: 550px) {
+  #main-nav form fieldset.mobile-nav {
+    display: block;
+  }
+}
+#main-nav form fieldset.mobile-nav select {
+  width: 100%;
+  font-size: 0.8em;
+  border: 1px solid #888;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+#header {
+  padding: 30px 35px 16px 35px;
+}
+@media screen and (max-width: 600px) {
+  #header {
+    padding: 30px 20px 16px 20px;
+  }
+}
+#header a:hover {
+  text-decoration: none;
+}
+#header h1 {
+  font-weight: normal;
+  font-size: 3em;
+  line-height: 1;
+}
+#header h2 {
+  font-weight: normal;
+  font-size: 0.9em;
+  line-height: 1;
+  margin-top: 10px;
+}
+@media screen and (min-width: 480px) {
+  #header .hgroup {
+    float: left;
+  }
 }
 
 /* -- The Fixed Positioned Navigator -- */
