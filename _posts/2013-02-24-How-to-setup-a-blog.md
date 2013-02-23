@@ -17,7 +17,7 @@ tags: []
 
   需要有自己主机跟域名
   
-  示例 [](http://czzz.org， [](http://zmingcx.com/), [](http://hengtian.org/)
+  示例 [http://czzz.org](http://czzz.org， [http://zmingcx.com/](http://zmingcx.com/), [http://hengtian.org/](http://hengtian.org/)
 
 * [typecho](http://typecho.org/)
 
@@ -29,19 +29,19 @@ tags: []
 
   可以搭建在github上，免去自己租主机，可以使用github的子域名，使用markdown语法很方便
 
-  示例: [](http://iwangke.me/)  [](http://bigeagle.me)
+  示例: [http://iwangke.me/](http://iwangke.me/)  [http://bigeagle.me](http://bigeagle.me)
 
 * [Jekyll](http://jekyllbootstrap.com)
 
   类似与Octopress, 更加简洁方便，但总体功能扩展不如Octopress多
 
-  示例: [](http://m.czzz.org)  [](ttp://ztpala.com/)
+  示例: [http://m.czzz.org](http://m.czzz.org)  [ttp://ztpala.com/](ttp://ztpala.com/)
 
 * [Hexo](http://zespia.tw/hexo/)
 
   也是静态站
 
-  示例： [](http://aetherwu.com/)   [](http://lucifr.com/)
+  示例： [http://aetherwu.com/](http://aetherwu.com/)   [http://lucifr.com](http://lucifr.com/)
 
 * [Farbox](http://www.farbox.com)
 
@@ -49,5 +49,6 @@ tags: []
 
   是最近国人开发的一个很不错的博客系统, 简洁简单
 
-  示例: [](http://ued.com.cn/)  [](http://blur.farbox.com/)  [](http://detail.farbox.com/)
+  示例: [http://ued.com.cn](http://ued.com.cn/)  [http://blur.farbox.com](http://blur.farbox.com/)  [http://detail.farbox.com](http://detail.farbox.com/)
 
+---
