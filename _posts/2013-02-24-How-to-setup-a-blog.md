@@ -17,7 +17,7 @@ tags: []
 
   需要有自己主机跟域名
   
-  示例 http://czzz.org， http://zmingcx.com/, http://hengtian.org/
+  示例 [[http://czzz.org]]， [[http://zmingcx.com/]], [[http://hengtian.org/]]
 
 * [typecho](http://typecho.org/)
 
